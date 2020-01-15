@@ -1,0 +1,6 @@
+## Libraries
+node_modules
+
+## Build
+dist
+coverage
