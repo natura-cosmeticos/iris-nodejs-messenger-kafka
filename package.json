@@ -1,0 +1,48 @@
+{
+  "name": "@naturacosmeticos/iris-nodejs-messenger-kafka",
+  "version": "0.0.1",
+  "description": "Utilities to ease the communication with Apache Kafka",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "repository": "https://github.com/natura-cosmeticos/iris-nodejs-messenger-kafka.git",
+  "homepage": "https://github.com/natura-cosmeticos/iris-nodejs-messenger-kafka",
+  "author": "Natura Cosméticos <TDDAArquitetura@natura.net>",
+  "contributors": [
+    "Handrus Stephan Nogueira <handrus@gmail.com>",
+    "Matheus Robert Lichtnow <matheus@vizir.com.br>",
+    "Vagner Saraiva <vagner@vizir.com.br>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^3.7.4"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "tslint 'src/**/*.ts'",
+    "dev": "tsc --watch",
+    "test": "jest --collectCoverage",
+    "test:update": "npm run test -u",
+    "commit": "npx git-cz"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.9.0",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
+    "jest": "^24.9.0",
+    "semantic-release": "^16.0.1",
+    "ts-jest": "^24.3.0",
+    "tslint": "^5.20.1",
+    "tslint-config-prettier": "^1.18.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}
