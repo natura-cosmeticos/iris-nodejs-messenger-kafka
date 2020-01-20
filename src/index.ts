@@ -1,1 +1,3 @@
-export {};
+import { Publish } from "./producer";
+
+export { Publish };
