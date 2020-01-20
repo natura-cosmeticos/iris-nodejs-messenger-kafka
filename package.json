@@ -14,6 +14,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "kafka-node": "^5.0.0",
     "typescript": "^3.7.4"
   },
   "scripts": {
@@ -28,11 +29,18 @@
     "@types/jest": "^24.9.0",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
+    "husky": "^4.0.10",
     "jest": "^24.9.0",
     "semantic-release": "^16.0.1",
     "ts-jest": "^24.3.0",
     "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm test"
+    }
   },
   "config": {
     "commitizen": {
