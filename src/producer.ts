@@ -14,12 +14,9 @@ export const Publish = () => {
 
   const createTopics = (topics: string[]) => {
     return new Promise((resolve, reject) => {
-      producer.createTopics(
-        topics,
-        (err: Error, data: ProduceRequest): void => {
-          err ? reject(err) : resolve(data);
-        }
-      );
+      producer.createTopics(topics, (err: any, data: any): void => {
+        err ? reject(err) : resolve(data);
+      });
     });
   };
 
@@ -32,7 +29,7 @@ export const Publish = () => {
       }
     ];
     return new Promise((resolve, reject) => {
-      producer.send(payload, (err: Error, data: ProduceRequest): void => {
+      producer.send(payload, (err: any, data: any): void => {
         err ? reject(err) : resolve(data);
       });
     });
@@ -48,10 +45,15 @@ export const Publish = () => {
     );
   };
 
+  const close = () => {
+    producer.close();
+  };
+
   return {
     create,
     createTopics,
     send,
-    currentOffset
+    currentOffset,
+    close
   };
 };

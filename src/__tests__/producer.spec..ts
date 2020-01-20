@@ -1,6 +1,12 @@
 import { Publish } from "..";
 
 describe("Producer", () => {
+  const publish = Publish();
+
+  afterAll(() => {
+    publish.close();
+  });
+
   it("should send publish", async () => {
     const request = {
       topic: "topic1",
@@ -8,7 +14,6 @@ describe("Producer", () => {
       partition: 0
     };
 
-    const publish = Publish();
     await publish.create();
     await publish.createTopics([request.topic]);
 

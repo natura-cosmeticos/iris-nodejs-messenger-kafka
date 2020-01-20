@@ -1,3 +1,4 @@
 import { Publish } from "./producer";
+import { client } from "./connection";
 
-export { Publish };
+export { client, Publish };
