@@ -10,7 +10,7 @@ describe("Producer", () => {
   it("should send publish", async () => {
     const request = {
       topic: "topic1",
-      messages: "hello",
+      messages: "hello world",
       partition: 0
     };
 
