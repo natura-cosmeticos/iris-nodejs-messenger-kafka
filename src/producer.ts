@@ -3,7 +3,7 @@ import { v4 as uuid } from "uuid";
 import { client } from "./connection";
 
 export const Publish = () => {
-  const producer = client("Producer").producer();
+  const producer = client.producer();
 
   const send = async (topic: string, value: any) => {
     const payload = {
