@@ -1,5 +1,8 @@
-import { KafkaClient } from "kafka-node";
+import { Kafka } from "kafkajs";
 
-export const client = new KafkaClient({
-  kafkaHost: process.env.KAFKA_HOST || "0.0.0.0:9092"
-});
+export const client = (clientId: string): Kafka => {
+  return new Kafka({
+    clientId,
+    brokers: [process.env.KAFKA_HOST || "0.0.0.0:9092"]
+  });
+};

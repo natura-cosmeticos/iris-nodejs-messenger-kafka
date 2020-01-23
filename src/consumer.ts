@@ -1,41 +1,29 @@
-import {
-  Consumer,
-  OffsetFetchRequest,
-  ConsumerOptions,
-  Message
-} from "kafka-node";
 import { client } from "./connection";
 
-export const Subscribe = (topic: string, partition: number) => {
-  const topics: OffsetFetchRequest[] = [{ topic, partition }];
-  const options: ConsumerOptions = {
-    autoCommit: false,
-    fetchMaxWaitMs: 1000,
-    fetchMaxBytes: 1024 * 1024
-  };
+export const Subscribe = (groupId: string) => {
+  const consumer = client("Consumer").consumer({ groupId });
 
-  const consumer = new Consumer(client, topics, options);
+  const receive = async (topic: string) => {
+    const payload = {
+      topic
+    };
 
-  const receive = () => {
-    return new Promise(resolve => {
-      client.refreshMetadata([topic], (): void => {
-        consumer.on("message", (message: Message): void => {
-          resolve(message);
-        });
-      });
-    });
-  };
+    await consumer.connect();
+    await consumer.subscribe(payload);
 
-  const close = () => {
-    return new Promise(reject => {
-      consumer.close((error: Error): void => {
-        reject(error);
-      });
-    });
+    const response = new Array();
+    // await consumer.run({
+    //   eachMessage: async ({ message }) => {
+    //     response.push(message.value.toString());
+    //   }
+    // });
+
+    await consumer.disconnect();
+
+    return response;
   };
 
   return {
-    receive,
-    close
+    receive
   };
 };
