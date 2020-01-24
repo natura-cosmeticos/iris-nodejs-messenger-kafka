@@ -1,6 +1,7 @@
-import { Publish } from "..";
+import { Publish } from "../..";
+jest.unmock("kafkajs");
 
-describe("Producer", () => {
+describe("Producer Integration Tests", () => {
   const publish = Publish();
   const propertiesResponse = [
     "topicName",
