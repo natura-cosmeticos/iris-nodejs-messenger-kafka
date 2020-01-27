@@ -1,5 +1,7 @@
-import { KafkaClient } from "kafka-node";
+import { Kafka, logLevel } from "kafkajs";
 
-export const client = new KafkaClient({
-  kafkaHost: process.env.KAFKA_HOST || "0.0.0.0:9092"
+export const client = new Kafka({
+  clientId: "Iris",
+  logLevel: logLevel.WARN,
+  brokers: [process.env.KAFKA_HOST || "0.0.0.0:9092"]
 });
