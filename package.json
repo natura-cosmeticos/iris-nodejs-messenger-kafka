@@ -24,7 +24,8 @@
     "dev": "tsc --watch",
     "test": "jest --collectCoverage",
     "test:update": "npm run test -u",
-    "commit": "npx git-cz"
+    "commit": "npx git-cz",
+    "release:local": "yarn build && npm publish --registry http://localhost:4873"
   },
   "devDependencies": {
     "@types/jest": "^24.9.0",
