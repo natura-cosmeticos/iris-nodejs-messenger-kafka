@@ -7,3 +7,6 @@ coverage
 
 #vscode
 .vscode
+
+#env
+.env
