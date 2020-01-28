@@ -4,7 +4,7 @@ const routes = express.Router();
 
 routes.post("/shopping-cards", async (req, res) => {
   const message = {
-    user: { id: 1, name: "Vagner A Saraiva" },
+    user: { id: 1, name: "Natura Cosmeticos" },
     product: "Kayak",
     quantity: 10
   };

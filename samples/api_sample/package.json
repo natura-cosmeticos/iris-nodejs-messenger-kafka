@@ -4,8 +4,13 @@
   "scripts": {
     "start": "nodemon src/server.js"
   },
-  "author": "Vagner A Saraiva <vagner@vizir.com.br>",
-  "license": "ISC",
+  "author": "Natura Cosméticos <TDDAArquitetura@natura.net>",
+  "contributors": [
+    "Handrus Stephan Nogueira <handrus@gmail.com>",
+    "Matheus Robert Lichtnow <matheus@vizir.com.br>",
+    "Vagner Saraiva <vagner@vizir.com.br>"
+  ],
+  "license": "MIT",
   "dependencies": {
     "@naturacosmeticos/iris-nodejs-messenger-kafka": "^0.0.1",
     "express": "^4.17.1",
