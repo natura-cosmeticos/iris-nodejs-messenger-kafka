@@ -1,6 +1,6 @@
 {
   "name": "@naturacosmeticos/iris-nodejs-messenger-kafka",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "description": "Utilities to ease the communication with Apache Kafka",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -25,7 +25,8 @@
     "test": "jest --collectCoverage",
     "test:update": "npm run test -u",
     "commit": "npx git-cz",
-    "release:local": "yarn build && npm publish --registry http://localhost:4873"
+    "release:local": "yarn build && npm publish --registry http://localhost:4873",
+    "semantic-release": "semantic-release"
   },
   "devDependencies": {
     "@types/jest": "^24.9.0",
@@ -33,7 +34,7 @@
     "cz-conventional-changelog": "^3.0.2",
     "husky": "^4.0.10",
     "jest": "^24.9.0",
-    "semantic-release": "^16.0.1",
+    "semantic-release": "^16.0.2",
     "ts-jest": "^24.3.0",
     "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0"

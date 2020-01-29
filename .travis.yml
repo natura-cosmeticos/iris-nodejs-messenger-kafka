@@ -3,30 +3,51 @@ language: node_js
 os:
   - linux
 
-cache:
-  directories:
-    - node_modules
-
-node_js:
-  - 12
-  - 10
-
 env:
-  - DOCKER_COMPOSE_VERSION=1.25.1
+  global:
+    - DOCKER_COMPOSE_VERSION=1.25.1
 
-before_install:
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
+jobs:
+  include:
+    - stage: Testing (node 12)
+      node_js: 12
+      if: type = pull_request
+      before_script:
+        - npm run lint
+        - npm run build
+      before_install:
+        - sudo rm /usr/local/bin/docker-compose
+        - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+        - chmod +x docker-compose
+        - sudo mv docker-compose /usr/local/bin
+      install:
+        - npm install
+      script:
+        - docker-compose up -d
+        - npm test
 
-install:
-  - npm install
+    - stage: Testing (node 10)
+      node_js: 10
+      if: type = pull_request
+      before_script:
+        - npm run lint
+        - npm run build
+      before_install:
+        - sudo rm /usr/local/bin/docker-compose
+        - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+        - chmod +x docker-compose
+        - sudo mv docker-compose /usr/local/bin
+      install:
+        - npm install
+      script:
+        - docker-compose up -d
+        - npm test
 
-before_script:
-  - npm run lint
-  - npm run build
-
-script:
-  - docker-compose up -d
-  - npm test
+    - stage: release
+      node_js: 12
+      if: branch = master AND type = push
+      script: skip
+      deploy:
+        provider: script
+        cleanup: true
+        script: npm install && npm run build && npm run semantic-release
