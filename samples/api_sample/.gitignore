@@ -1,0 +1,12 @@
+## Libraries
+node_modules
+
+## Build
+dist
+coverage
+
+#vscode
+.vscode
+
+#env
+.env
