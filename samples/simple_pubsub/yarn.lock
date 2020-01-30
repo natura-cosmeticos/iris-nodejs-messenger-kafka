@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@naturacosmeticos/iris-nodejs-messenger-kafka@^0.0.1":
-  version "0.0.1"
-  resolved "http://localhost:4873/@naturacosmeticos%2firis-nodejs-messenger-kafka/-/iris-nodejs-messenger-kafka-0.0.1.tgz#dd59d129d7b857e60b7b388907c929fb5bc6e0c4"
-  integrity sha512-3aSNSb5a9ObBVqh2GUvz6k/eCOi/pSGX3LCM9NB2OIeOObj7fkEqikM3gdvnBniwNY30yzUSO2ba7fZOFtm3gA==
+"@naturacosmeticos/iris-nodejs-messenger-kafka@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@naturacosmeticos/iris-nodejs-messenger-kafka/-/iris-nodejs-messenger-kafka-1.0.0.tgz#ddb70ef1b829f4fc9024f2d9617242ce5283746c"
+  integrity sha512-A3Ek8hDkoBSpzhVPEVF7f5kJZWUWthRhUDaRfgKp8vB65eFrWid0B9HSsF1QUNcsfOwD6XKSPfGmwsmLkBPKZg==
   dependencies:
     "@types/uuid" "^3.4.6"
     kafkajs "^1.11.0"
@@ -22,6 +22,11 @@
   integrity sha512-cCdlC/1kGEZdEglzOieLDYBxHsvEOIg7kp/2FYyVR9Pxakq+Qf/inL3RKQ+PA8gOlI/NnL+fXmQH12nwcGzsHw==
   dependencies:
     "@types/node" "*"
+
+dotenv@^8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
+  integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
 
 kafkajs@^1.11.0:
   version "1.11.0"
