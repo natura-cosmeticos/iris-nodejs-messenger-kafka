@@ -13,35 +13,35 @@ jobs:
       node_js: 12
       if: type = pull_request
       before_script:
-        - npm run lint
-        - npm run build
+        - yarn lint
+        - yarn build
       before_install:
         - sudo rm /usr/local/bin/docker-compose
         - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
         - chmod +x docker-compose
         - sudo mv docker-compose /usr/local/bin
       install:
-        - npm install
+        - yarn
       script:
         - docker-compose up -d
-        - npm test
+        - yarn test
 
     - stage: Testing (node 10)
       node_js: 10
       if: type = pull_request
       before_script:
-        - npm run lint
-        - npm run build
+        - yarn lint
+        - yarn build
       before_install:
         - sudo rm /usr/local/bin/docker-compose
         - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
         - chmod +x docker-compose
         - sudo mv docker-compose /usr/local/bin
       install:
-        - npm install
+        - yarn
       script:
         - docker-compose up -d
-        - npm test
+        - yarn test
 
     - stage: release
       node_js: 12
@@ -50,4 +50,4 @@ jobs:
       deploy:
         provider: script
         cleanup: true
-        script: npm install && npm run build && npm run semantic-release
+        script: yarn && yarn build && yarn semantic-release

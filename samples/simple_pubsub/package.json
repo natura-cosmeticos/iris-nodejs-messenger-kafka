@@ -14,6 +14,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@naturacosmeticos/iris-nodejs-messenger-kafka": "^0.0.1"
+    "@naturacosmeticos/iris-nodejs-messenger-kafka": "^1.0.0",
+    "dotenv": "^8.2.0"
   }
 }
