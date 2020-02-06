@@ -2,9 +2,15 @@ import { Publish, Subscribe } from "../..";
 jest.unmock("kafkajs");
 
 describe("Consumer Integration Tests", () => {
+  const subscribe = Subscribe("test-consumer");
+
   beforeAll(async () => {
     const publish = Publish();
-    await publish.send("topic1", "hello world");
+    await publish.send("test.consumer.topic", "hello world");
+  });
+
+  afterAll(async () => {
+    await subscribe.receive("test.consumer.topic");
   });
 
   it("should receive data", async () => {
@@ -15,8 +21,7 @@ describe("Consumer Integration Tests", () => {
       "partition",
       "topic"
     ];
-    const subscribe = Subscribe("test-consumer");
-    const response = (await subscribe.receive("topic1")) as any[];
+    const response = (await subscribe.receive("test.consumer.topic")) as any[];
 
     expect(response.length).toBeGreaterThanOrEqual(1);
     expect(Object.keys(response[0])).toEqual(propertiesResponse);
