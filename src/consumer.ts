@@ -1,7 +1,8 @@
+import { RetryOptions } from "kafkajs";
 import { client } from "./connection";
 
-export const Subscribe = (groupId: string) => {
-  const consumer = client.consumer({ groupId });
+export const Subscribe = (groupId: string, retry?: RetryOptions) => {
+  const consumer = client.consumer({ groupId, retry });
   const admin = client.admin();
 
   const receive = async (topic: string) => {
