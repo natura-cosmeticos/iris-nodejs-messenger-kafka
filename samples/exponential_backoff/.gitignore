@@ -1,0 +1,8 @@
+## Libraries
+node_modules
+
+## Build
+dist
+
+#vscode
+.vscode
